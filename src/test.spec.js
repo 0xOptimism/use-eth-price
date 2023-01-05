@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react-hooks";
 import { useEthPrice } from "./";
 
-describe("useStarWarsQuote", () => {
+describe("useEthPrice", () => {
   test("should return an object with the keys: loading and ethPrice", () => {
     const { result } = renderHook(() => useEthPrice());
 
