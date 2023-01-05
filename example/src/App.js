@@ -1,12 +1,11 @@
-import React from 'react'
-import { useMyHook } from 'use-eth-price'
+import React from "react";
+import { useEthPrice } from "use-eth-price";
 
 const App = () => {
-  const example = useMyHook()
-  return (
-    <div>
-      {example}
-    </div>
-  )
-}
-export default App
+  const { ethPrice, loading } = useEthPrice();
+  if (loading) {
+    return loading;
+  }
+  return <div>{ethPrice}</div>;
+};
+export default App;

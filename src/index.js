@@ -1,21 +1,25 @@
-import * as React from 'react'
+import { useState, useEffect } from "react";
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState({
-    counter: 0
-  })
+const COINGECKO_URL =
+  "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd";
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval)
+export function useEthPrice() {
+  const [ethPrice, setEthPrice] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    async function getEthPrice() {
+      setLoading(true);
+
+      const response = await fetch(COINGECKO_URL);
+      const data = await response.json();
+      const price = data?.ethereum?.usd;
+
+      setEthPrice(price);
+      setLoading(false);
     }
-  }, [])
+    getEthPrice();
+  }, []);
 
-  return counter
+  return { ethPrice, loading };
 }
