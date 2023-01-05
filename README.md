@@ -17,12 +17,18 @@ import React from "react";
 import { useEthPrice } from "use-eth-price";
 
 const App = () => {
-  const { ethPrice, loading } = useEthPrice();
+  const { ethPrice, loading, error } = useEthPrice();
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error..</p>;
+  }
 
   if (ethPrice) {
-    return <div>{ethPrice}</div>;
+    return <div>The price of ETH in USD is: {ethPrice}</div>;
   }
 
   return null;
