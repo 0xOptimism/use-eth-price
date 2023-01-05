@@ -5,21 +5,25 @@ const COINGECKO_URL =
 
 export function useEthPrice() {
   const [ethPrice, setEthPrice] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function getEthPrice() {
-      setLoading(true);
+      try {
+        const response = await fetch(COINGECKO_URL);
+        const data = await response.json();
+        const price = data?.ethereum?.usd;
 
-      const response = await fetch(COINGECKO_URL);
-      const data = await response.json();
-      const price = data?.ethereum?.usd;
-
-      setEthPrice(price);
-      setLoading(false);
+        setEthPrice(price);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
     }
     getEthPrice();
   }, []);
 
-  return { ethPrice, loading };
+  return { ethPrice, loading, error };
 }
