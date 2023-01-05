@@ -8,4 +8,5 @@ const App = () => {
   }
   return <div>{ethPrice}</div>;
 };
+
 export default App;

@@ -13,16 +13,22 @@ npm install --save use-eth-price
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from "react";
+import { useEthPrice } from "use-eth-price";
 
-import { useMyHook } from 'use-eth-price'
+const App = () => {
+  const { ethPrice, loading } = useEthPrice();
 
-const Example = () => {
-  const example = useMyHook()
-  return (
-    <div>{example}</div>
-  )
-}
+  if (loading) return <p>Loading..</p>;
+
+  if (ethPrice) {
+    return <div>{ethPrice}</div>;
+  }
+
+  return null;
+};
+
+export default App;
 ```
 
 ## License
