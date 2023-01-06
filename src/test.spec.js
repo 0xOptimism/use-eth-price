@@ -4,25 +4,26 @@ import { useEthPrice } from "./";
 const mock = (ethPriceData) =>
   jest.fn(() => Promise.resolve({ json: () => ethPriceData }));
 
-describe("useStarWarsQuote", () => {
-  test("should return an object with the keys: loading and ethPrice", () => {
+describe("useEthPrice", () => {
+  it("should return an object with the keys: loading and ethPrice", () => {
     const { result } = renderHook(() => useEthPrice());
 
     expect(result.current).toHaveProperty("loading");
     expect(result.current).toHaveProperty("ethPrice");
   });
 
-  test("should return a quote and set loading to false", async () => {
+  it("should return a quote and set loading to false", async () => {
     const { result, waitForNextUpdate } = renderHook(() => useEthPrice());
 
     await waitForNextUpdate();
+
     expect(typeof result.current.ethPrice).toBe("number");
     expect(result.current.ethPrice).not.toBe(null);
     expect(result.current.ethPrice).not.toBe("");
     expect(result.current.loading).toBe(false);
   });
 
-  test("should return price from the coinguecko API", async () => {
+  it("should return price from the coinguecko API", async () => {
     const ethPriceData = { ethereum: { usd: 1200.22 } };
     global.fetch = mock(ethPriceData);
 
