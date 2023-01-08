@@ -30,7 +30,7 @@ const App = () => {
   }
 
   if (ethPrice) {
-    return <div>The price of ETH in USD is: {ethPrice}</div>;
+    return <div>The price of ETH in SEK is: {ethPrice}</div>;
   }
 
   return null;
