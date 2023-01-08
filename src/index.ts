@@ -21,7 +21,6 @@ export function useEthPrice(currency: string = "usd"): {
         const response = await fetch(COINGECKO_URL, signal);
         const data = await response.json();
         const price = data?.ethereum?.[currency];
-        console.log(data?.ethereum);
 
         setEthPrice(price);
         setLoading(false);
