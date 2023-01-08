@@ -1,23 +1,27 @@
 import { useState, useEffect } from "react";
 
-const COINGECKO_URL =
-  "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd";
-
-export function useEthPrice() {
-  const [ethPrice, setEthPrice] = useState(null);
+export function useEthPrice(currency: string = "usd"): {
+  ethPrice: number | null;
+  loading: boolean;
+  error: Error | null;
+} {
+  const [ethPrice, setEthPrice] = useState<number | null>(0);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
 
+  const COINGECKO_URL = `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=${currency}`;
   useEffect(() => {
     const abortController = new AbortController();
     const signal = {
       signal: abortController.signal,
     };
+
     async function getEthPrice() {
       try {
         const response = await fetch(COINGECKO_URL, signal);
         const data = await response.json();
-        const price = data?.ethereum?.usd;
+        const price = data?.ethereum?.[currency];
+        console.log(data?.ethereum);
 
         setEthPrice(price);
         setLoading(false);
@@ -31,7 +35,7 @@ export function useEthPrice() {
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [currency]);
 
   return { ethPrice, loading, error };
 }

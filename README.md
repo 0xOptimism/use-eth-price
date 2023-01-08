@@ -12,12 +12,14 @@ npm install --save use-eth-price
 
 ## Usage
 
+To use the useEthPrice hook, you can import it into your React component and call it with a string argument that specifies the currency for which you want to get the ETH price. The hook will default to USD if you don't pass anything.
+
 ```jsx
 import React from "react";
 import { useEthPrice } from "use-eth-price";
 
 const App = () => {
-  const { ethPrice, loading, error } = useEthPrice();
+  const { ethPrice, loading, error } = useEthPrice("sek");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -42,5 +44,3 @@ export default App;
 MIT © [0xOptimism](https://github.com/0xOptimism)
 
 ---
-
-This hook is created using [create-react-hook](https://github.com/hermanya/create-react-hook).
