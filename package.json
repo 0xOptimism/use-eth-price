@@ -1,6 +1,6 @@
 {
   "name": "use-eth-price",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "a custom React hook that provides ETH price",
   "author": "0xOptimism",
   "license": "MIT",
