@@ -1,13 +1,20 @@
 {
   "name": "use-eth-price",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "a custom React hook that provides ETH price",
   "author": "0xOptimism",
   "license": "MIT",
-  "repository": "0xOptimism/use-eth-price",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xOptimism/use-eth-price.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "engines": {
     "node": ">=14",
     "npm": ">=6"

@@ -1,0 +1,37 @@
+# Development files
+.cursor/
+*.log
+yarn-error.log
+yarn.lock
+
+# Example app
+example/
+
+# Source files (only dist should be published)
+src/
+*.ts
+!*.d.ts
+
+# Config files
+.babelrc
+.eslintrc
+.editorconfig
+.travis.yml
+tsconfig.json
+rollup.config.js
+
+# Test files
+*.spec.js
+*.test.js
+test/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Build artifacts (keep dist/)
+*.map
