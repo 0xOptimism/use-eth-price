@@ -1,4 +1,0 @@
-{"location":"App.js:6","message":"App component mounting, about to call useEthPrice","data":{},"timestamp":1769866479021,"sessionId":"debug-session","hypothesisId":"A"}
-{"location":"App.js:12","message":"useEthPrice hook returned","data":{"ethPrice":2624.17,"loading":true,"hasError":false},"timestamp":1769866479023,"sessionId":"debug-session","hypothesisId":"B"}
-{"location":"App.js:6","message":"App component mounting, about to call useEthPrice","data":{},"timestamp":1769866479098,"sessionId":"debug-session","hypothesisId":"A"}
-{"location":"App.js:12","message":"useEthPrice hook returned","data":{"ethPrice":2624.17,"loading":false,"hasError":false},"timestamp":1769866479100,"sessionId":"debug-session","hypothesisId":"B"}
