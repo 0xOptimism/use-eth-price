@@ -5,16 +5,20 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "prop-types": "^15.6.2",
-    "react": "link:../node_modules/react",
-    "react-dom": "^16.9.0",
-    "react-scripts": "^3.0.1",
+    "@craco/craco": "^7.1.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^9.3.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
     "use-eth-price": "link:.."
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "browserslist": [

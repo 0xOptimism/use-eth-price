@@ -5,16 +5,16 @@
   "author": "0xOptimism",
   "license": "MIT",
   "repository": "0xOptimism/use-eth-price",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "engines": {
-    "node": ">=8",
-    "npm": ">=5"
+    "node": ">=14",
+    "npm": ">=6"
   },
   "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
+    "test": "cross-env CI=1 react-scripts test",
+    "test:watch": "react-scripts test",
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
@@ -23,7 +23,7 @@
     "postpublish": "git push --tags"
   },
   "peerDependencies": {
-    "react": ">=16.9.0"
+    "react": ">=16.9.0 || >=18.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -46,27 +46,29 @@
     "@babel/plugin-syntax-import-meta": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
-    "babel-eslint": "^10.0.1",
-    "cross-env": "^5.2.0",
-    "eslint": "5.16.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-react": "^7.10.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "gh-pages": "^2.0.1",
-    "react": "^16.9.0",
-    "react-scripts": "^3.4.0",
-    "react-test-renderer": "^16.9.0",
-    "rollup": "^1.1.2",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-url": "^2.1.0"
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.50.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-config-standard-react": "^13.0.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-standard": "^5.0.0",
+    "gh-pages": "^6.0.0",
+    "react": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "react-test-renderer": "^18.2.0",
+    "rollup": "^4.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "@rollup/plugin-url": "^6.0.0"
   },
   "publishConfig": {
     "access": "public"
